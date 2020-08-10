@@ -27,6 +27,13 @@ namespace BattleshipCore.UI
 
             //Console.WriteLine("{0} vs {1}", newGameManager.Player1.Name, newGameManager.Player2.Name);
             Console.WriteLine($"{newGameManager.Player1.Name} vs {newGameManager.Player2.Name}");
+
+            newGameManager.WhoGoesFirst();
+
+            if (newGameManager.Player1.Order == 1)
+                Console.WriteLine($"{newGameManager.Player1.Name} is going first.");
+            else
+                Console.WriteLine($"{newGameManager.Player2.Name} is going first.");
         }
     }
 }
