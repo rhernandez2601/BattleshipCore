@@ -97,8 +97,8 @@ namespace BattleshipCore.UI
                         break;
                 }
                 string coordinate = Console.ReadLine();
-
-                //to-do validate coordinate response
+                coordinate = ValidationUtils.ValidateNonEmptyString(coordinate, "Weally?!?!?!?!?! Type a coordinate you weirdo!!!!!");
+                coordinate = ValidationUtils.ValidateCoordinate(coordinate, "Weally?!?!?!?!?! Type a coordinate you weirdo!!!!!");
 
                 PlaceShipRequest placeShipRequest = new PlaceShipRequest()
                 {
@@ -108,6 +108,8 @@ namespace BattleshipCore.UI
 
                 Console.WriteLine("Which direction will the ship go (u for up, d for down, r for right, l for left?");
                 var direction = Console.ReadLine();
+                direction = ValidationUtils.ValidateNonEmptyString(direction, "Weally?!?!?!?!?! Type a real direction (u for up, d for down, r for right, l for left)!");
+                direction = ValidationUtils.ValidateDirectionOfShip(direction, "Weally?!?!?!?!?! Type a real direction (u for up, d for down, r for right, l for left)!");
                 switch (direction.ToLower())
                 {
                     case "u":
